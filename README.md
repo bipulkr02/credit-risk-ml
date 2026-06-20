@@ -79,20 +79,20 @@ The system provides:
 credit-risk-ml
 │
 ├── data/
-│   └── credit\_risk\_dataset.csv
+│   └── credit\\\_risk\\\_dataset.csv
 ├── models/
-│   ├── best\_model.pkl
+│   ├── best\\\_model.pkl
 │   ├── scaler.pkl
 │   └── encoders.pkl
 ├── notebooks/
-│   └── Credit\_Risk\_Analysis.ipynb
+│   └── Credit\\\_Risk\\\_Analysis.ipynb
 ├── reports/
-│   └── (EDA plots, model\_comparison.csv)
+│   └── (EDA plots, model\\\_comparison.csv)
 ├── src/
-│   ├── generate\_data.py
-│   ├── data\_preprocessing.py
+│   ├── generate\\\_data.py
+│   ├── data\\\_preprocessing.py
 │   ├── eda.py
-│   └── train\_models.py
+│   └── train\\\_models.py
 ├── app.py
 ├── main.py
 ├── requirements.txt
@@ -130,13 +130,15 @@ Run the web application:
 
 ```bash
 streamlit run app.py
+
+\\## 📷 Application Preview
+
+!\\\[App Screenshot](images/app\\\_preview.png)
+
+\\## 🌐 Deployment
+
+The application is deployed using Streamlit Cloud for real-time access.
 ```
-
-## \## 📷 Application Preview
-
-## !\[App Screenshot](images/app\_preview.png)🌐 Deployment
-
-The application is deployed using **Streamlit Cloud** for real-time access.
 
 ## 👨‍💻 Author
 
