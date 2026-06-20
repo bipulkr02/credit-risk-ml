@@ -27,10 +27,36 @@ credit-risk-ml/
 │   └── train_models.py              # model training, evaluation, model selection
 ├── models/                          # saved best model, scaler, encoders (.pkl)
 ├── reports/                         # EDA plots, model comparison CSV, metrics
-├── main.py                          # runs the full pipeline end-to-end
+├── app.py                           # Streamlit web app for live predictions
+├── main.py                          # runs the full ML pipeline end-to-end
 ├── requirements.txt
+├── runtime.txt                      # Python version pin for Streamlit Cloud
 └── README.md
 ```
+
+## 🌐 Web App (Streamlit)
+
+This project includes an interactive **Streamlit app** (`app.py`) that lets you enter an applicant's details and instantly get:
+
+- **Default Probability** — likelihood the applicant defaults on the loan
+- **Credit Score** — derived score on a 300–900 scale
+- **Risk Rating** — Poor / Average / Good / Excellent
+
+Run it locally with:
+```bash
+streamlit run app.py
+```
+It will open in your browser at `http://localhost:8501`.
+
+🔗 **Live Demo:** _add your Streamlit Cloud link here after deploying_
+
+### Deploying to Streamlit Cloud (free)
+1. Push this repo to GitHub (already done if you're reading this on GitHub).
+2. Go to [share.streamlit.io](https://share.streamlit.io) and sign in with GitHub.
+3. Click **"New app"** → select this repo → branch `main` → main file `app.py`.
+4. Click **Deploy**. Streamlit Cloud installs `requirements.txt` and runs the app automatically.
+5. Copy the generated app URL and paste it into the "Live Demo" line above.
+
 
 ## Dataset
 
