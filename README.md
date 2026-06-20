@@ -1,129 +1,133 @@
-# Credit Risk Analysis using Machine Learning
+# 🏦 Credit Risk Prediction System
 
-**Duration:** Jan 2026 – Feb 2026
+## 📌 Overview
+The **Credit Risk Prediction System** is a Machine Learning based application designed to evaluate the financial risk associated with loan applicants. The system analyzes applicant information, credit behaviour, and loan characteristics to estimate the probability of loan default and generate a credit score.
 
-An end-to-end machine learning pipeline that analyzes and predicts customer credit risk (loan default) from financial/applicant data. The project covers data preprocessing, feature engineering, encoding, normalization, exploratory data analysis, and comparison of multiple classification models.
+This project demonstrates an end-to-end Machine Learning pipeline, including data preprocessing, exploratory data analysis, feature engineering, training and comparing multiple models, and deployment using Streamlit.
 
-## Project Overview
+## 🚀 Live Application
+🔗 **Live Demo:** _add your Streamlit Cloud link here after deploying_
 
-- Built an end-to-end ML pipeline to predict customer credit risk using financial datasets.
-- Performed data preprocessing, feature engineering, encoding, and normalization to improve prediction accuracy.
-- Conducted exploratory data analysis (EDA) to identify customer risk patterns, correlations, and loan default trends using statistical analysis and visualization techniques.
-- Trained and compared multiple machine learning models: **Logistic Regression, Decision Tree, Random Forest, and XGBoost**.
-- Evaluated models using **Accuracy, Precision, Recall, and F1-Score**.
+## 🎯 Problem Statement
+Financial institutions must assess whether a borrower is capable of repaying a loan. Manual evaluation is time-consuming and prone to bias.
 
-## Project Structure
+This project automates credit evaluation using Machine Learning to support data-driven lending decisions.
 
+## ⚙️ Features
+- Credit Risk Prediction
+- Default Probability Estimation
+- Credit Score Generation (300–900)
+- Risk Rating Classification
+- Interactive Streamlit Dashboard
+- Multi-Model Comparison Dashboard (Logistic Regression / Decision Tree / Random Forest / XGBoost)
+
+## 🧠 Machine Learning Workflow
+1. Data Collection
+2. Data Cleaning & Preprocessing
+3. Exploratory Data Analysis (EDA)
+4. Feature Engineering
+5. Feature Encoding & Scaling using StandardScaler
+6. Model Training (Logistic Regression, Decision Tree, Random Forest, XGBoost)
+7. Model Evaluation (Accuracy, Precision, Recall, F1-Score, ROC-AUC)
+8. Best Model Selection & Serialization using Joblib
+9. Deployment using Streamlit Cloud
+
+## 🛠 Tech Stack
+- Python
+- Pandas
+- NumPy
+- Scikit-learn
+- XGBoost
+- Matplotlib / Seaborn
+- Streamlit
+- Joblib
+
+## 📊 Input Parameters
+The model evaluates applicants using:
+- Age
+- Job Level
+- Housing Type
+- Savings Account Status
+- Checking Account Status
+- Monthly Income
+- Loan / Credit Amount
+- Loan Duration (Tenure)
+- Loan Purpose
+- Years of Employment
+- Existing Credit Lines
+- Number of Dependents
+
+## 📈 Model Output
+The system provides:
+- Default Probability
+- Credit Score (300–900)
+- Risk Rating (Poor / Average / Good / Excellent)
+
+## 📂 Project Structure
 ```
-credit-risk-ml/
+credit-risk-ml
+│
 ├── data/
-│   └── credit_risk_dataset.csv      # generated/loaded dataset
+│   └── credit_risk_dataset.csv
+├── models/
+│   ├── best_model.pkl
+│   ├── scaler.pkl
+│   └── encoders.pkl
 ├── notebooks/
-│   └── Credit_Risk_Analysis.ipynb   # full walkthrough notebook
+│   └── Credit_Risk_Analysis.ipynb
+├── reports/
+│   └── (EDA plots, model_comparison.csv)
 ├── src/
-│   ├── generate_data.py             # synthetic data generator
-│   ├── data_preprocessing.py        # cleaning, feature engineering, encoding, scaling
-│   ├── eda.py                       # exploratory data analysis + plots
-│   └── train_models.py              # model training, evaluation, model selection
-├── models/                          # saved best model, scaler, encoders (.pkl)
-├── reports/                         # EDA plots, model comparison CSV, metrics
-├── app.py                           # Streamlit web app for live predictions
-├── main.py                          # runs the full ML pipeline end-to-end
+│   ├── generate_data.py
+│   ├── data_preprocessing.py
+│   ├── eda.py
+│   └── train_models.py
+├── app.py
+├── main.py
 ├── requirements.txt
-├── runtime.txt                      # Python version pin for Streamlit Cloud
+├── runtime.txt
 └── README.md
 ```
 
-## 🌐 Web App (Streamlit)
+## ▶️ How to Run Locally
 
-This project includes an interactive **Streamlit app** (`app.py`) that lets you enter an applicant's details and instantly get:
+Clone repository:
+```bash
+git clone https://github.com/bipulkr02/credit-risk-ml.git
+```
 
-- **Default Probability** — likelihood the applicant defaults on the loan
-- **Credit Score** — derived score on a 300–900 scale
-- **Risk Rating** — Poor / Average / Good / Excellent
+Move into project folder:
+```bash
+cd credit-risk-ml
+```
 
-Run it locally with:
+Install dependencies:
+```bash
+pip install -r requirements.txt
+```
+
+Run the ML pipeline (generates data, EDA, trains & compares models):
+```bash
+python main.py
+```
+
+Run the web application:
 ```bash
 streamlit run app.py
 ```
-It will open in your browser at `http://localhost:8501`.
 
-🔗 **Live Demo:** _add your Streamlit Cloud link here after deploying_
+## 📷 Application Preview
+_(add a screenshot of your running app here)_
 
-### Deploying to Streamlit Cloud (free)
-1. Push this repo to GitHub (already done if you're reading this on GitHub).
-2. Go to [share.streamlit.io](https://share.streamlit.io) and sign in with GitHub.
-3. Click **"New app"** → select this repo → branch `main` → main file `app.py`.
-4. Click **Deploy**. Streamlit Cloud installs `requirements.txt` and runs the app automatically.
-5. Copy the generated app URL and paste it into the "Live Demo" line above.
+## 🌐 Deployment
+The application is deployed using **Streamlit Cloud** for real-time access.
 
+## 👨‍💻 Author
+**Bipul Kumar**
 
-## Dataset
-
-This repo ships with a **synthetic credit-risk dataset generator** (`src/generate_data.py`) so the project runs out of the box with no external downloads. It produces realistic applicant features (age, income, credit amount, duration, savings/checking status, employment history, etc.) with a default label driven by a configurable risk function (~28% default rate).
-
-If you have a real dataset (e.g. the UCI **German Credit Data**, Kaggle's **"Give Me Some Credit"**, or a LendingClub export), just drop the CSV into `data/` and update `DATA_PATH` in `src/data_preprocessing.py` — the rest of the pipeline works unchanged.
-
-## Features Engineered
-
-- `credit_to_income_ratio` — credit amount relative to monthly income
-- `est_monthly_installment` / `installment_to_income_ratio` — affordability proxies
-- `age_group` — binned age buckets to capture non-linear risk
-- `employment_stability` — employment years relative to working-age years
-
-## Models Compared
-
-| Model | Notes |
-|---|---|
-| Logistic Regression | Baseline linear model, interpretable coefficients |
-| Decision Tree | Captures non-linear splits, prone to overfitting |
-| Random Forest | Ensemble of trees, reduces variance |
-| XGBoost | Gradient boosting, typically strongest performer |
-
-## Sample Results
-
-*(from a run on the synthetic dataset — your numbers will vary slightly by random seed / dataset)*
-
-| Model | Accuracy | Precision | Recall | F1-Score |
-|---|---|---|---|---|
-| Logistic Regression | 0.812 | 0.711 | 0.554 | 0.623 |
-| Random Forest | 0.810 | 0.750 | 0.482 | 0.587 |
-| Decision Tree | 0.763 | 0.588 | 0.514 | 0.549 |
-| XGBoost | *(install xgboost to populate)* | | | |
-
-Full metrics are saved to `reports/model_comparison.csv` after each run.
-
-## How to Run
-
-1. **Clone the repo and install dependencies**
-   ```bash
-   git clone https://github.com/<your-username>/credit-risk-ml.git
-   cd credit-risk-ml
-   pip install -r requirements.txt
-   ```
-
-2. **Run the full pipeline**
-   ```bash
-   python main.py
-   ```
-   This will:
-   - Generate the dataset (if not already present in `data/`)
-   - Run EDA and save plots to `reports/`
-   - Train and compare all 4 models
-   - Save the best model to `models/best_model.pkl`
-
-3. **Or explore step by step in the notebook**
-   ```bash
-   jupyter notebook notebooks/Credit_Risk_Analysis.ipynb
-   ```
-
-## Tech Stack
-
-`Python` · `pandas` · `NumPy` · `scikit-learn` · `XGBoost` · `Matplotlib` · `Seaborn` · `Jupyter`
-
-## Future Improvements
-
-- Hyperparameter tuning (GridSearchCV / Optuna)
-- SHAP-based model explainability
+## ⭐ Future Improvements
+- Hyperparameter tuning using Optuna / GridSearchCV
+- Explainable AI (SHAP values)
+- API integration using FastAPI
+- Real-world banking dataset expansion
 - Handling class imbalance with SMOTE
-- Deploy best model behind a simple Flask/FastAPI scoring endpoint
