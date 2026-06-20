@@ -134,7 +134,7 @@ streamlit run app.py
 
 ## 📷 Application Preview
 
-!\[App Screenshot](images/app\_preview.png)
+![App Screenshot](images/app_preview.png)
 
 ## 🌐 Deployment
 
